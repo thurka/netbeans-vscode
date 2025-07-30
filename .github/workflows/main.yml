@@ -24,7 +24,7 @@
 #
 # this workflow can push the limit of the apache action runner policy, please use CI responsibly
 
-name: NetBeans
+name: NetBeans VSCode
 
 on:
   push:
