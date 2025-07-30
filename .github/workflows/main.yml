@@ -118,7 +118,7 @@ jobs:
           restore-keys: ${{ runner.os }}-
 
       - name: Build NetBeans
-        run: ant $OPTS -quiet -Dcluster.config=$CLUSTER_CONFIG build-vscode-ext
+        run: ant $OPTS -quiet -Dcluster.config=$CLUSTER_CONFIG build-netbeans
 
       - name: Prepare Artifact
         if: ${{ matrix.java == '17' }}
@@ -208,7 +208,7 @@ jobs:
         if: ${{ (matrix.config == 'release') && success() }}
         run: |
           cd tmpbuild/java/java.lsp.server
-          ant $OPTS build-vscode-ext -D3rdparty.modules=.*externalcodeformatter.*
+          ant $OPTS build-vscode-ext 
 
 
   vscode-extension-test:
