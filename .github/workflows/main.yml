@@ -66,7 +66,7 @@ env:
   #  - EA builds must be available for the upcoming release (note: some vendors skip builds)
   #  - linux, win, mac (arm)
   #  - reliable / no extra sauce
-  DEFAULT_JAVA_DISTRIBUTION: 'oracle'
+  DEFAULT_JAVA_DISTRIBUTION: 'temurin'
 
   # labels are mapped to env vars for pipeline customization. If this is not a PR, (almost) everything will run, but with a reduced matrix.
   # note: env vars don't work in the job's 'if' field but do work within jobs ( https://github.com/actions/runner/issues/1189 ), the whole expression must be duplicated
@@ -264,6 +264,7 @@ jobs:
     name: Cleanup Workflow Artifacts
     needs:
       - base-build
+      - build-from-src-zip
       - vscode-extension-test
 
     # cleanup if the primary build job succeeded and
